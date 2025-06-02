@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Aisha 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  
+<style>
+  body {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    background: linear-gradient(to bottom right, #fcd5ce, #fae1dd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  .card {
+    background-color: white;
+    color: #ff69b4;
+    padding: 2rem;
+    border-radius: 2rem;
+    border: 4px dashed #ffb6c1;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 35px rgba(255,182,193,0.6);
+    position: relative;
+    animation: popIn 1.2s ease;
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .terminal-line {
+    margin-bottom: 0.5rem;
+    color: #ff69b4;
+  }
+  .heart {
+    text-align: center;
+    font-size: 3rem;
+    color: #ff1493;
+    animation: pulse 1s infinite alternate;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.3); }
+  }
+  .final-text {
+    text-align: center;
+    color: #d63384;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+    height: auto;
+    gap: 1rem;
+  }
+  .btn {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  .yes {
+    background-color: #ffb6c1;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255,182,193,0.6);
+  }
+  .yes:hover {
+    background-color: #ff69b4;
+    transform: scale(1.1);
+  }
+  .no {
+    background-color: #ff6b6b;
+    color: white;
+    position: absolute;
+  }
+  .continue {
+    background-color: #f9a8d4;
+    color: white;
+    margin-top: 1rem;
+  }
+  .hidden {
+    display: none;
+  }
+  @media (max-width: 480px) {
+    .card {
+      padding: 1.25rem;
+      border-width: 2px;
+    }
+    .heart {
+      font-size: 2.5rem;
+    }
+    .final-text {
+      font-size: 1rem;
+    }
+    .btn {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <audio src="Dj AB.mp3" autoplay loop></audio>
+  <div class="card">
+    <pre id="scene1"></pre>
+    <div id="terminal" class="hidden"></div>
+    <div id="heartScene" class="hidden">
+      <div class="heart">💖</div>
+      <div class="final-text">Aisha, will you be my fav friend...? ☀️💕</div>
+      <div class="btn-group">
+        <button class="btn yes" id="yesBtn">Yes 💘</button>
+        <button class="btn no" id="noBtn">No 🙈</button>
+      </div>
+    </div>
+
+    <div id="scene2" class="hidden">
+      <div class="final-text">Yay! You said yes! 🥹💗<br />You've made my heart happy that
+      it never has before 🎉</div>
+      <div class="btn-group">
+        <button class="btn continue" onclick="showNextScene(3)">Continue 💕</button>
+      </div>
+    </div>
+
+    <div id="scene3" class="hidden">
+      <div class="final-text">Any time I see your message, it’s like my phone sends me a little hug… kinda unfair how you can brighten my whole day like that." 😊🦋💃</div>
+      <div class="btn-group">
+        <button class="btn continue" onclick="showNextScene(4)">Continue 💫</button>
+      </div>
+    </div>
+
+    <div id="scene4" class="hidden">
+      <div class="final-text">Not to be dramatic, but your messages might be my favorite notification ever. 💌📱</div>
+      <div class="btn-group">
+        <button class="btn continue" onclick="showNextScene(5)">Keep Going 🌸</button>
+      </div>
+    </div>
+
+    <div id="scene5" class="hidden">
+      <div class="final-text">If loving you is a bug, I never want to fix it 😘💘</div>
+      <div class="btn-group">
+        <button class="btn continue" onclick="showNextScene(6)">One Last Thing 💖</button>
+      </div>
+    </div>
+
+    <div id="scene6" class="hidden">
+      <div class="final-text">You being loyal? That’s rare and beautiful—I’d never ask you to break that. But just so you know… if you ever feel unappreciated, I’m right here, rooting for you. Always. 🍓💕 <br />Leaving you on read feels illegal… but if I don’t stop now, I might end up confessing how much I want you. Bye! 🔥😈💌</div>
+    </div>
+  </div>
+
+  <script>
+    const introText = `Hey Aisha 🌸\n\nI know this is a bit cheesy, but I couldn't help myself...\n\nYour heart hacked me and stole my heart... 💾\n\nSo here I am, coding my feelings just for you... 🥺 \n\n to make sure my heart is being safe... 💕 `;
+    const terminalLines = [
+      "Booting up my feeling...",
+      "Searching for Aisha's smile... ✨",
+      "Bypassing shy protocols... 😳",
+      "Injecting love to my brain... 🦋",
+      "Finalizing love letter... 💌"
+    ];
+    const scene1 = document.getElementById("scene1");
+    const terminal = document.getElementById("terminal");
+    const heartScene = document.getElementById("heartScene");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const container = document.querySelector(".card");
+
+    let i = 0;
+    const typeIntro = () => {
+      if (i < introText.length) {
+        scene1.textContent += introText[i++];
+        setTimeout(typeIntro, 30);
+      } else {
+        setTimeout(startTerminal, 2000);
+      }
+    };
+
+    let j = 0;
+    const startTerminal = () => {
+      scene1.classList.add("hidden");
+      terminal.classList.remove("hidden");
+      if (j < terminalLines.length) {
+        const line = document.createElement("div");
+        line.className = "terminal-line";
+        line.textContent = `$ ${terminalLines[j++]}`;
+        terminal.appendChild(line);
+        setTimeout(startTerminal, 1200);
+      } else {
+        setTimeout(() => {
+          heartScene.classList.remove("hidden");
+        }, 1000);
+      }
+    };
+
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * (container.clientWidth - 100);
+      const y = Math.random() * (container.clientHeight - 50);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      heartScene.classList.add("hidden");
+      document.getElementById("scene2").classList.remove("hidden");
+    });
+
+    function showNextScene(num) {
+      const current = document.querySelector('.card > div:not(.hidden)');
+      if (current) current.classList.add("hidden");
+      const next = document.getElementById(`scene${num}`);
+      if (next) next.classList.remove("hidden");
+    }
+
+    window.onload = typeIntro;
+  </script>
+</body>
+</html>
